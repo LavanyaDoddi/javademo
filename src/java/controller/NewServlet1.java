@@ -35,8 +35,7 @@ public class NewServlet1 extends HttpServlet {
         String nationality = request.getParameter("nationality");
 
         java.util.Date myDate = new java.util.Date(dob);
-
-        java.sql.Date sqlDate = new java.sql.Date(myDate.getDate());
+        java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
 
         try {
 
