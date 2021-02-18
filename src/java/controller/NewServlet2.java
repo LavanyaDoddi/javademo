@@ -1,5 +1,6 @@
 package controller;
 
+import Utils.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -27,10 +28,7 @@ public class NewServlet2 extends HttpServlet {
         try {
             System.out.println("Entered into system");
 
-            Connection con;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "root");
-            System.out.println("connected");
+            Connection con = Database.DBConnect();
             String sql = "insert into page3(martial_status,education) VALUES(?,?)";
 
             PreparedStatement ps = con.prepareStatement(sql);

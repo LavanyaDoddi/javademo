@@ -1,5 +1,6 @@
 package controller;
 
+import Utils.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -24,10 +25,7 @@ public class NewServlet extends HttpServlet {
         String StateIssuedDivorceid = request.getParameter("sid");
 
         try {
-            Connection con;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "root");
-            System.out.println("connected");
+            Connection con = Database.DBConnect();
 
             String sql = "insert into registration1(name,sid) VALUES(?,?)";
 

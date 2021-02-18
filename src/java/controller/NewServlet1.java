@@ -5,6 +5,7 @@
  */
 package controller;
 
+import Utils.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -40,10 +41,8 @@ public class NewServlet1 extends HttpServlet {
         try {
 
 
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root", "root");
-            Statement stmt = con.createStatement();
-            System.out.println("connected");
+            Connection con = Database.DBConnect();
+            
             String sql = "insert into page2(dob,nationality) VALUES(?,?)";
 
             PreparedStatement ps = con.prepareStatement(sql);
@@ -55,8 +54,6 @@ public class NewServlet1 extends HttpServlet {
             rs.forward(request, response);
 
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DatePicker.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(DatePicker.class.getName()).log(Level.SEVERE, null, ex);
         }

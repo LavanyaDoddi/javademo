@@ -14,8 +14,8 @@
       <div align="center">
          <form action="NewServlet2" method="post">
             <label>Martial Status</label></br>
-            Married:<input type="radio" name="status" value="male" >
-           Unmarried:<input type="radio" name="status" value="female" ><br>
+            Married:<input type="radio" name="status" value="married" >
+           Unmarried:<input type="radio" name="status" value="unmarried" ><br>
             
             <label> Highest Education</label><br>
             <input type="text" placeholder="Enter education" name="education"><br>
